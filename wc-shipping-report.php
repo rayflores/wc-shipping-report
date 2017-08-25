@@ -68,13 +68,6 @@ function my_custom_submenu_page_callback() {
 			
 		}
 		
-echo '<pre>';		
-$tracking_items =  get_post_meta(41658,'_wc_shipment_tracking_items', true);
-print_r(date('m-d-y', 1501545600) );
-echo '<br/>';
-$fdate = date('m-d-y', strtotime($_GET['fdate']) );
-print_r($fdate);
-echo '</pre>';
 		$filters = array(
     		'post_status' => 'any',
     		'post_type' => 'shop_order',
@@ -103,7 +96,7 @@ echo '</pre>';
 		$price = 0;
 		$order_array=array();
 		if($loop->have_posts() ) :
-		echo 'have posts';
+
 			while ($loop->have_posts()) {
 				$loop->the_post();
 				$order = new WC_Order($loop->post->ID);
